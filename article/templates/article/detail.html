@@ -1,0 +1,37 @@
+{% extends "article/base.html" %}
+{% load staticfiles %}
+{% load custom_markdown %}
+
+{% block introheader %}
+<!-- every page title -->
+<header class="intro-header" style="background-image: url('../../static/img/detail-bg.jpg'); height: 595px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>{{ post.title }}</h1>
+                        <span class="meta">{{ post.pub_date }}
+                            &nbsp;&nbsp;Category:&nbsp;&nbsp;
+                            <a href="/category/{{ post.category }}" style="text-decoration: underline;">
+                            {{ post.category }}</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p> {{ post.content|custom_markdown }}</p>
+                    
+                </div>
+            </div>
+        </div>
+    </article>
+{% endblock %}

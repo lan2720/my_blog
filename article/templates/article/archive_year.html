@@ -1,0 +1,38 @@
+{% extends "article/base.html" %}
+{% load staticfiles %}
+{% load custom_markdown %}
+
+
+{% block introheader %}
+<header class="intro-header" style="background-image: url('../../../static/img/archive-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="page-heading">
+                    <h1>Archive</h1>
+                    <hr class="small">
+                    <span class="subheading">How I Became Stronger.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            
+            <ul>
+                {% for article in article_list %}
+                <li class="archive-year"> <a href="/post/{{ article.id }}">{{ article.title }}</a>
+                    ,{{ article.pub_date|date:"M d, Y" }}
+                </li>
+                <hr>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

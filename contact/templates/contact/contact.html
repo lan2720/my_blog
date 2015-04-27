@@ -1,0 +1,44 @@
+{% extends "article/base.html" %}
+{% load staticfiles %}
+
+{% block introheader %}
+<!-- every page title -->
+<header class="intro-header" style="background-image: url('../../static/img/contact-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="site-heading">
+                        <h1>Contact Me</h1>
+                        <hr class="small">
+                        <span class="subheading">Have questions? I have answers (maybe).</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+</header>
+{% endblock %}
+
+<!-- Main Content -->
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <p>Want to get in touch with me? Fill out the form below to send me a message and I will try to get back to you within 24 hours!</p>
+                <form action="/contact/" method="post">
+                  {% csrf_token %}
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" value="" required>
+             
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="text" value="" required>
+             
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" required></textarea>
+             
+                  <input id="submit" name="submit" type="submit" value="Send">
+                </form>
+ 
+        </div>
+    </div>
+</div>
+{% endblock %}
